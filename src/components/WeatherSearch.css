@@ -1,0 +1,138 @@
+.weather-container {
+  margin: 2rem auto;
+  max-width: 400px;
+  padding: 1rem;
+  background-color: white; 
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.weather-container.light-mode {
+  background-color: white ; 
+  color: var(--color-light-text) ; 
+}
+
+.weather-container.light-mode h2,
+.weather-container.light-mode p,
+.weather-container.light-mode input,
+.weather-container.light-mode button,
+.weather-container.light-mode .weather-card {
+  color: var(--color-light-text) ; 
+}
+
+
+
+.weather-container.dark-mode {
+  background-color: #333; 
+  color: white; 
+}
+
+.weather-container h2 {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.weather-container input {
+  padding: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  
+}
+
+.weather-container.dark-mode input {
+  background-color: #555; 
+  color: white; 
+  border: 1px solid #888; 
+}
+
+.weather-container button {
+  padding: 0.6rem;
+  width: 100%;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.weather-container.dark-mode button {
+  background-color: #444; 
+}
+
+.weather-container button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.weather-container button:hover {
+  background-color: #0056b3;
+}
+
+.weather-container.dark-mode button:hover {
+  background-color: #666; 
+}
+
+.weather-card {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgba(0, 123, 255, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  
+}
+
+
+.weather-container .error-message {
+  color: red;
+  font-size: 1rem;
+  text-align: center;
+}
+
+
+
+@media (max-width: 600px) {
+  .weather-container {
+    max-width: 90%;
+  }
+  .weather-container h2 {
+    font-size: 1.4rem;
+  }
+  .weather-container input, .weather-container button {
+    padding: 0.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .weather-container input,
+  .weather-container button {
+    width: 100%; 
+  }
+}
+@media (max-width: 480px) {
+  .image-grid {
+    grid-template-columns: 1fr; 
+  }
+}
+@media (max-width: 320px) {
+  .weather-container h2 {
+    font-size: 1.4rem; 
+  }
+
+  .weather-container input,
+  .weather-container button {
+    width: 100%; 
+  }
+
+  .weather-card {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: rgba(0, 123, 255, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 1rem;
+  }
+}

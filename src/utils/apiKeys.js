@@ -1,0 +1,2 @@
+export const PIXABAY_KEY = '49708642-e39693679b87fb2a31fc4021b';
+export const OPENWEATHER_KEY = '3db33c82daa019685dae09dd091b1f3c';

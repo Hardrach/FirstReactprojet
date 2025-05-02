@@ -1,38 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+}
+
+:root {
+  --color-primary: #0d1117;
+  --color-secondary: #161b22;
+  --color-accent: #1f6feb;
+  --color-text: #e6edf3;
+  --color-hover: #58a6ff;
+  --color-light-bg: #f9f9f9;
+  --color-light-text: #111;
+  --color-glow: #00ffe1;
+  --color-error: #ff4d4d;
+}
+
+html, body {
+  overflow-x: hidden; /* كيمنع الـ horizontal scrolling */
+}
+
+body {
+  max-height: 100%;
+  font-family: 'Rajdhani', sans-serif;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  transition: all 0.4s ease;
+  overflow-x: hidden !important;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  transition: background-color 0.4s ease, color 0.4s ease;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  margin: 0;
+}
+
+.light-mode {
+  background-color: var(--color-light-bg);
+  color: var(--color-light-text);
+}
+
+.dark-mode {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.container {
+  max-width: 100%;
+  width: 100%;
+  margin: auto;
+  padding: 2rem;
+  animation: fadeIn 1.2s ease-in-out;
+  box-sizing: border-box;
+  overflow-x: hidden; 
+}
+
+button {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--color-accent);
+  transition: all 0.3s ease;
+  align-items: center;
+  max-width: 100%; 
+}
+
+button:hover {
+  background-color: var(--color-hover);
+  transform: scale(1.05);
+}
+
+.error-message {
+  color: var(--color-error);
+  background-color: #ffebeb;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.loader-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-primary);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  z-index: 9999;
+  animation: loaderFadeOut 2.5s ease-in-out 1s forwards;
 }
 
-.App-link {
-  color: #61dafb;
+.loader-screen h1 {
+  color: var(--color-glow);
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px var(--color-glow), 0 0 20px var(--color-glow);
+  animation: glow 1.5s ease-in-out infinite alternate;
 }
 
-@keyframes App-logo-spin {
+@keyframes loaderFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes glow {
   from {
-    transform: rotate(0deg);
+    text-shadow: 0 0 5px var(--color-glow), 0 0 10px var(--color-glow);
   }
   to {
-    transform: rotate(360deg);
+    text-shadow: 0 0 20px var(--color-glow), 0 0 40px var(--color-glow);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem; 
+  }
+
+  button {
+    padding: 0.5rem 1rem; 
+  }
+
+  h1, h2, h3 {
+    font-size: 1.2rem; 
   }
 }
